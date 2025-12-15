@@ -6,7 +6,7 @@ const POSTGRES_IMAGE = "postgres:15";
 const CONTAINER_NAME = "e2e-test-postgres";
 const POSTGRES_USER = "test";
 const POSTGRES_PASSWORD = "test";
-const POSTGRES_DB = "testdb";
+const POSTGRES_DB = "testdb-rekindle-studio";
 const PORT = 5433; // avoid clashing with local postgres
 
 function run(cmd) {
@@ -101,7 +101,9 @@ function main() {
   console.log(`  User: ${POSTGRES_USER}`);
   console.log(`  Password: ${POSTGRES_PASSWORD}`);
   console.log(`  Database: ${POSTGRES_DB}`);
-  console.log(`\nTo connect: psql -h localhost -p ${PORT} -U ${POSTGRES_USER} ${POSTGRES_DB}`);
+  console.log(
+    `\nTo connect: psql -h localhost -p ${PORT} -U ${POSTGRES_USER} ${POSTGRES_DB}`
+  );
   //updateEnvFile();
 }
 
@@ -128,4 +130,3 @@ main();
 //   fs.writeFileSync(envPath, lines.join("\n"), "utf-8");
 //   console.log(`Updated .env.e2e with DB_URL=${DB_URL}`);
 // }
-

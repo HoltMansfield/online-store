@@ -6,8 +6,8 @@ if (!process.env.SENTRY_AUTH_TOKEN) {
   process.exit(0);
 }
 
-const SENTRY_ORG = "your-sentry-org";
-const SENTRY_PROJECT = "your-sentry-project";
+const SENTRY_ORG = "your-sentry-org-name";
+const SENTRY_PROJECT = "rekindle-studio";
 
 try {
   console.log("Installing Sentry CLI...");
