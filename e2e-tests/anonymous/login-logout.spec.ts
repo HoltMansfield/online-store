@@ -45,11 +45,23 @@ test("register, login, and logout flow", async ({ page }) => {
   // Manually navigate to home page if not redirected
   await page.goto(`${process.env.E2E_URL}/`);
 
-  // Check if we're logged in by looking for any content that should be on the home page
-  const pageContent = await page.content();
-  expect(pageContent).toContain("Logout");
+  // Check if we're logged in by looking for the user menu trigger
+  await expect(
+    page.locator('[data-testid="nav-user-menu-trigger"]')
+  ).toBeVisible({
+    timeout: 10000,
+  });
 
-  // Find and click the logout button (use desktop version which is visible)
+  // Open the user menu
+  await page.click('[data-testid="nav-user-menu-trigger"]');
+  await page.waitForTimeout(500);
+
+  // Wait for the menu to be visible
+  await expect(page.locator('[data-testid="nav-user-menu"]')).toBeVisible({
+    timeout: 5000,
+  });
+
+  // Find and click the logout button
   await page.click('[data-testid="logout-desktop"]');
 
   // Verify we're back at the login page
