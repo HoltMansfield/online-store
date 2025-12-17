@@ -9,12 +9,15 @@ on:
 jobs:
   build:
     name: Next.js Build
-    #environment: CI # this is where environment variables are set
+    environment: CI
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_APP_ENV: CI
       # SENTRY_AUTH_TOKEN is needed when Sentry webpack plugin is enabled in next.config.ts
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      # Sanity configuration
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

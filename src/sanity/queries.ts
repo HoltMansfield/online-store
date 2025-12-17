@@ -21,3 +21,14 @@ export const productBySlugQuery = groq`*[_type == "product" && slug.current == $
   category,
   inStock
 }`;
+
+export const breedLoversProductsQuery = groq`*[_type == "product" && category == "Breed Lovers"] | order(_createdAt desc) {
+  _id,
+  name,
+  slug,
+  description,
+  price,
+  "imageUrl": image.asset->url,
+  category,
+  inStock
+}`;

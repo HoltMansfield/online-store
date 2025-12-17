@@ -251,7 +251,7 @@ export default function NavBarClient({ currentUser }: NavBarClientProps) {
         {/* Mobile: Only show title */}
         <div className="flex justify-center w-full lg:hidden py-2">
           <span className="font-semibold text-base tracking-tight text-slate-200">
-            Deal Decoder
+            Rekindle Studio
           </span>
         </div>
 
@@ -259,7 +259,7 @@ export default function NavBarClient({ currentUser }: NavBarClientProps) {
         <div className="hidden lg:flex justify-between w-full items-center">
           <div className="flex items-center flex-shrink-0 text-gray-800 mr-16">
             <span className="font-semibold text-base tracking-tight text-slate-200">
-              Deal Decoder
+              Rekindle Studio
             </span>
           </div>
 
