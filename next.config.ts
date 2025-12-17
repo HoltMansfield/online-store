@@ -14,12 +14,13 @@ const nextConfig: NextConfig = {
             value: [
               "default-src 'self'",
               "img-src * data:",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-              "style-src 'self' 'unsafe-inline'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.sanity.io https://*.sanity.io https://core.sanity-cdn.com",
+              "style-src 'self' 'unsafe-inline' https://cdn.sanity.io",
               "font-src 'self' data: https://fonts.gstatic.com",
-              "connect-src *",
+              "connect-src * https://cdn.sanity.io https://*.sanity.io https://*.apicdn.sanity.io",
               "worker-src 'self' blob: data:",
-            ].join("; ")
+              "frame-src 'self' https://cdn.sanity.io",
+            ].join("; "),
           },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
